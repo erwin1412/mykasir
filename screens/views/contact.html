@@ -8,6 +8,7 @@
 <body class="bg-gray-50 text-gray-800">
 
   <!-- 🔹 Navbar -->
+
   <nav class="bg-white shadow mb-6">
     <div class="max-w-7xl mx-auto px-4">
       <div class="flex justify-between items-center py-4">
@@ -15,11 +16,19 @@
         <ul class="hidden md:flex space-x-6">
           <li><a href="home.html" class="text-gray-600 hover:text-blue-500">Home</a></li>
           <li><a href="produk.html" class="text-gray-600 hover:text-blue-500">Product</a></li>
-          <li><a href="gallery.html" class="text-gray-600 hover:text-blue-500">Galeri</a></li>
+          <li><a href="gallery.html" class="text-gray-600 hover:text-blue-500">Gallery</a></li>
           <li><a href="about.html" class="text-gray-600 hover:text-blue-500">About Us</a></li>
-          <li><a href="contact.html" class="text-blue-600 font-semibold">Contact Us</a></li>
-          <li><a href="login.html" class="text-gray-600 hover:text-blue-500">Login</a></li>
-          <li><a href="register.html" class="text-gray-600 hover:text-blue-500">Register</a></li>
+          <li id="contactNav"><a href="contact.html" class="text-blue-500 font-semibold">Contact Us</a></li>
+          <li id="loginNav"><a href="login.html" class="text-gray-600 hover:text-blue-500">Login</a></li>
+          <li id="registerNav"><a href="register.html" class="text-gray-600 hover:text-blue-500">Register</a></li>
+          <li id="userNav" class="relative hidden">
+            <button id="userButton" class="text-blue-500 font-semibold focus:outline-none">
+              <!-- Nama user akan diisi via JS -->
+            </button>
+            <ul id="dropdownMenu" class="absolute right-0 mt-2 w-40 bg-white border rounded shadow-lg hidden">
+              <li><a href="#" id="logoutBtn" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Logout</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>
@@ -41,41 +50,41 @@
 
       <!-- Contact Form -->
      <!-- Contact Form Section -->
-    <form class="bg-white p-6 rounded-lg shadow space-y-4">
+    <form id="contactForm" class="bg-white p-6 rounded-lg shadow space-y-4">
       <!-- Name -->
       <div class="flex flex-col md:flex-row gap-4">
         <div class="w-full">
           <label class="block text-sm font-medium mb-1">Nama Depan<span class="text-red-500">*</span></label>
-          <input type="text" placeholder="First" class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-400" />
+          <input id="first" type="text" placeholder="First" class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-400" />
         </div>
         <div class="w-full">
           <label class="block text-sm font-medium mb-1">Nama Belakang<span class="text-red-500">*</span></label>
-          <input type="text" placeholder="Last" class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-400" />
+          <input id="last" type="text" placeholder="Last" class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-400" />
         </div>
       </div>
   
       <!-- Email -->
       <div>
         <label class="block text-sm font-medium mb-1">Email<span class="text-red-500">*</span></label>
-        <input type="email" placeholder="you@example.com" class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-400" />
+        <input id="email" type="email" placeholder="you@example.com" class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-400" />
       </div>
   
       <!-- Phone -->
       <div>
         <label class="block text-sm font-medium mb-1">Nomor Telepon</label>
-        <input type="tel" placeholder="08xx xxxx xxxx" class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-400" />
+        <input id="phone" type="text" placeholder="08xx xxxx xxxx" class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-400" />
       </div>
   
       <!-- Subject -->
       <div>
         <label class="block text-sm font-medium mb-1">Subjek Pesan<span class="text-red-500">*</span></label>
-        <input type="text" placeholder="Contoh: Permintaan Demo" class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-400" />
+        <input id="subject" type="text" placeholder="Contoh: Permintaan Demo" class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-400" />
       </div>
   
       <!-- Message -->
       <div>
         <label class="block text-sm font-medium mb-1">Pesan<span class="text-red-500">*</span></label>
-        <textarea rows="5" placeholder="Tulis pesan Anda di sini..." class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-400"></textarea>
+        <textarea id="message" rows="5" placeholder="Tulis pesan Anda di sini..." class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-400"></textarea>
       </div>
   
       <!-- Submit Button -->
@@ -92,6 +101,8 @@
   <footer class="bg-white py-6 mt-12 text-center border-t">
     <p class="text-gray-500 text-sm">&copy; 2025 MyKasir. All rights reserved.</p>
   </footer>
+  <script src="../js/global.js"></script>
+  <script src="../js/contact.js"></script>
 
 </body>
 </html>

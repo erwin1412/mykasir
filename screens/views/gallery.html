@@ -23,11 +23,19 @@
         <ul class="hidden md:flex space-x-6">
           <li><a href="home.html" class="text-gray-600 hover:text-blue-500">Home</a></li>
           <li><a href="produk.html" class="text-gray-600 hover:text-blue-500">Product</a></li>
-          <li><a href="gallery.html" class="text-blue-600 font-semibold">About Us</a></li>
+          <li><a href="gallery.html" class="text-blue-500 font-semibold">Gallery</a></li>
           <li><a href="about.html" class="text-gray-600 hover:text-blue-500">About Us</a></li>
-          <li><a href="contact.html" class="text-gray-600 hover:text-blue-500">Contact Us</a></li>
-          <li><a href="login.html" class="text-gray-600 hover:text-blue-500">Login</a></li>
-          <li><a href="register.html" class="text-gray-600 hover:text-blue-500">Register</a></li>
+          <li id="contactNav"><a href="contact.html" class="text-gray-600 hover:text-blue-500">Contact Us</a></li>
+          <li id="loginNav"><a href="login.html" class="text-gray-600 hover:text-blue-500">Login</a></li>
+          <li id="registerNav"><a href="register.html" class="text-gray-600 hover:text-blue-500">Register</a></li>
+          <li id="userNav" class="relative hidden">
+            <button id="userButton" class="text-blue-500 font-semibold focus:outline-none">
+              <!-- Nama user akan diisi via JS -->
+            </button>
+            <ul id="dropdownMenu" class="absolute right-0 mt-2 w-40 bg-white border rounded shadow-lg hidden">
+              <li><a href="#" id="logoutBtn" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Logout</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>
@@ -78,6 +86,7 @@
       if (event.key === "Escape") closeLightbox();
     });
   </script>
+  <script src="../js/global.js"></script>
 
 </body>
 </html>
