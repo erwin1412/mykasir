@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Home - MyKasir</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .slide {
+      min-width: 100%;
+      flex-shrink: 0;
+    }
+  </style>
+  
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- 🔹 Navbar -->
+  <nav class="bg-white shadow mb-6">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex justify-between items-center py-4">
+        <div class="text-lg font-bold text-gray-800">MyKasir</div>
+        <ul class="hidden md:flex space-x-6">
+          <li><a href="home.html" class="text-blue-500 font-semibold">Home</a></li>
+          <li><a href="produk.html" class="text-gray-600 hover:text-blue-500">Product</a></li>
+          <li><a href="gallery.html" class="text-gray-600 hover:text-blue-500">Gallery</a></li>
+          <li><a href="about.html" class="text-gray-600 hover:text-blue-500">About Us</a></li>
+          <li><a href="contact.html" class="text-gray-600 hover:text-blue-500">Contact Us</a></li>
+          <li><a href="login.html" class="text-gray-600 hover:text-blue-500">Login</a></li>
+          <li><a href="register.html" class="text-gray-600 hover:text-blue-500">Register</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 🔹 Hero Section -->
+  <section class="max-w-7xl mx-auto px-4 py-16 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">Selamat Datang di <span class="text-blue-600">MyKasir</span></h1>
+    <p class="text-lg mb-6">Aplikasi kasir modern untuk usaha kecil dan menengah. Kelola penjualan dengan mudah, cepat, dan efisien.</p>
+    <a href="produk.html" class="bg-blue-600 text-white px-6 py-3 rounded font-semibold hover:bg-blue-700">Mulai Sekarang</a>
+  </section>
+
+  <!-- 🔹 Fitur Utama -->
+  <section class="bg-white py-12">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl font-bold text-center mb-8">Fitur Unggulan</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+        <div class="p-6 bg-gray-50 rounded shadow hover:shadow-md transition">
+          <h3 class="text-lg font-semibold mb-2">Transaksi Mudah</h3>
+          <p>Tambah produk ke keranjang dan simpan transaksi hanya dengan beberapa klik.</p>
+        </div>
+        <div class="p-6 bg-gray-50 rounded shadow hover:shadow-md transition">
+          <h3 class="text-lg font-semibold mb-2">Ekspor Laporan</h3>
+          <p>Ekspor transaksi ke Excel atau PDF untuk pelaporan yang lebih praktis.</p>
+        </div>
+        <div class="p-6 bg-gray-50 rounded shadow hover:shadow-md transition">
+          <h3 class="text-lg font-semibold mb-2">Desain Responsif</h3>
+          <p>Dapat digunakan di berbagai perangkat, dari HP hingga desktop.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🔹 Testimoni -->
+  <section class="py-12 bg-gray-100">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-2xl font-bold mb-6">Apa Kata Mereka</h2>
+  
+      <div class="relative overflow-hidden w-full">
+        <div id="sliderTrack" class="flex transition-transform duration-500 ease-in-out">
+          <!-- Slides akan di-generate dari JS -->
+        </div>
+      
+        <!-- Tombol -->
+        <button onclick="prevTestimoni()" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-300 p-2 rounded-full">‹</button>
+        <button onclick="nextTestimoni()" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-300 p-2 rounded-full">›</button>
+      </div>
+      
+    </div>
+  </section>
+  
+
+  <!-- 🔹 Footer -->
+  <footer class="bg-white py-6 mt-12 text-center border-t">
+    <p class="text-gray-500 text-sm">&copy; 2025 MyKasir. All rights reserved.</p>
+  </footer>
+
+
+  <script>
+    const testimonies = [
+      { name: "Andi", comment: "Layanan sangat baik!" },
+      { name: "Budi", comment: "Sangat membantu." },
+      { name: "Citra", comment: "Pengalaman menyenangkan." },
+      { name: "Dedi", comment: "Mudah digunakan." },
+      { name: "Eka", comment: "Cukup puas." },
+      { name: "Fani", comment: "Keren banget!" },
+      { name: "Gilang", comment: "User friendly." },
+      { name: "Hani", comment: "Support responsif." },
+      { name: "Intan", comment: "Sangat direkomendasikan." },
+      { name: "Joko", comment: "TOP banget!" },
+    ];
+    
+    const sliderTrack = document.getElementById("sliderTrack");
+    let currentIndex = 1; // dimulai dari indeks 1 karena kita akan duplikat
+    
+    function generateSlides() {
+      sliderTrack.innerHTML = "";
+    
+      const slides = [];
+    
+      // Duplikat terakhir untuk di awal
+      slides.push(createSlide(testimonies[testimonies.length - 1]));
+    
+      // Data asli
+      testimonies.forEach((item) => {
+        slides.push(createSlide(item));
+      });
+    
+      // Duplikat pertama untuk di akhir
+      slides.push(createSlide(testimonies[0]));
+    
+      slides.forEach(slide => sliderTrack.appendChild(slide));
+      updateSlider(true); // posisi awal tanpa animasi
+    }
+    
+    function createSlide(data) {
+      const div = document.createElement("div");
+      div.className = "slide p-6 bg-white text-center";
+      div.innerHTML = `
+        <p class="text-lg italic mb-2">"${data.comment}"</p>
+        <h3 class="text-md font-bold">${data.name}</h3>
+      `;
+      return div;
+    }
+    
+    function updateSlider(noAnimate = false) {
+        const slideWidth = sliderTrack.querySelector('.slide').offsetWidth;
+      
+        if (noAnimate) {
+          sliderTrack.style.transition = "none";
+        } else {
+          sliderTrack.style.transition = "transform 0.5s ease-in-out";
+        }
+      
+        sliderTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+      }
+      
+    
+    function nextTestimoni() {
+      if (currentIndex >= testimonies.length + 1) return;
+      currentIndex++;
+      updateSlider();
+    
+      if (currentIndex === testimonies.length + 1) {
+        setTimeout(() => {
+          currentIndex = 1;
+          updateSlider(true); // loncat tanpa animasi
+        }, 500); // sesuai durasi transition
+      }
+    }
+    
+    function prevTestimoni() {
+      if (currentIndex <= 0) return;
+      currentIndex--;
+      updateSlider();
+    
+      if (currentIndex === 0) {
+        setTimeout(() => {
+          currentIndex = testimonies.length;
+          updateSlider(true);
+        }, 500);
+      }
+    }
+    
+    window.addEventListener("DOMContentLoaded", generateSlides);
+    </script>
+    
+</body>
+</html>

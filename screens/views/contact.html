@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Hubungi Kami - MyKasir</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- 🔹 Navbar -->
+  <nav class="bg-white shadow mb-6">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex justify-between items-center py-4">
+        <div class="text-lg font-bold text-gray-800">MyKasir</div>
+        <ul class="hidden md:flex space-x-6">
+          <li><a href="home.html" class="text-gray-600 hover:text-blue-500">Home</a></li>
+          <li><a href="produk.html" class="text-gray-600 hover:text-blue-500">Product</a></li>
+          <li><a href="gallery.html" class="text-gray-600 hover:text-blue-500">Galeri</a></li>
+          <li><a href="about.html" class="text-gray-600 hover:text-blue-500">About Us</a></li>
+          <li><a href="contact.html" class="text-blue-600 font-semibold">Contact Us</a></li>
+          <li><a href="login.html" class="text-gray-600 hover:text-blue-500">Login</a></li>
+          <li><a href="register.html" class="text-gray-600 hover:text-blue-500">Register</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 🔹 Contact Us Section -->
+  <section class="max-w-4xl mx-auto px-4 py-16">
+    <h1 class="text-3xl font-bold mb-6 text-center">Hubungi <span class="text-blue-600">Kami</span></h1>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Contact Info -->
+      <div>
+        <h2 class="text-xl font-semibold mb-4">Informasi Kontak</h2>
+        <p class="mb-2">📍 Jl. Inovasi No. 123, Jakarta</p>
+        <p class="mb-2">📞 +62 812 3456 7890</p>
+        <p class="mb-2">✉️ support@mykasir.com</p>
+        <p class="mb-2">🕘 Senin - Jumat, 09.00 - 17.00</p>
+      </div>
+
+      <!-- Contact Form -->
+     <!-- Contact Form Section -->
+    <form class="bg-white p-6 rounded-lg shadow space-y-4">
+      <!-- Name -->
+      <div class="flex flex-col md:flex-row gap-4">
+        <div class="w-full">
+          <label class="block text-sm font-medium mb-1">Nama Depan<span class="text-red-500">*</span></label>
+          <input type="text" placeholder="First" class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-400" />
+        </div>
+        <div class="w-full">
+          <label class="block text-sm font-medium mb-1">Nama Belakang<span class="text-red-500">*</span></label>
+          <input type="text" placeholder="Last" class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-400" />
+        </div>
+      </div>
+  
+      <!-- Email -->
+      <div>
+        <label class="block text-sm font-medium mb-1">Email<span class="text-red-500">*</span></label>
+        <input type="email" placeholder="you@example.com" class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-400" />
+      </div>
+  
+      <!-- Phone -->
+      <div>
+        <label class="block text-sm font-medium mb-1">Nomor Telepon</label>
+        <input type="tel" placeholder="08xx xxxx xxxx" class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-400" />
+      </div>
+  
+      <!-- Subject -->
+      <div>
+        <label class="block text-sm font-medium mb-1">Subjek Pesan<span class="text-red-500">*</span></label>
+        <input type="text" placeholder="Contoh: Permintaan Demo" class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-400" />
+      </div>
+  
+      <!-- Message -->
+      <div>
+        <label class="block text-sm font-medium mb-1">Pesan<span class="text-red-500">*</span></label>
+        <textarea rows="5" placeholder="Tulis pesan Anda di sini..." class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-400"></textarea>
+      </div>
+  
+      <!-- Submit Button -->
+      <div class="pt-2">
+        <button type="submit" class="w-full bg-black text-white py-2 rounded hover:bg-gray-800 transition">Kirim Pesan</button>
+      </div>
+    </form>
+   
+      
+    </div>
+  </section>
+
+  <!-- 🔹 Footer -->
+  <footer class="bg-white py-6 mt-12 text-center border-t">
+    <p class="text-gray-500 text-sm">&copy; 2025 MyKasir. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

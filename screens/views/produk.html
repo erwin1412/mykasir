@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Halaman Produk Kasir</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.24/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body class="bg-gray-100">
+
+  <!-- 🔹 Navbar -->
+  <nav class="bg-white shadow mb-6">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex justify-between items-center py-4">
+        <div class="text-lg font-bold text-gray-800">MyKasir</div>
+
+        <ul id="navMenu" class="hidden md:flex space-x-6">
+          <li><a href="home.html" class="text-gray-600 font-semibold">Home</a></li>
+          <li><a href="produk.html" class="text-blue-600 hover:text-blue-500">Product</a></li>
+          <li><a href="gallery.html" class="text-gray-600 hover:text-blue-500">Gallery</a></li>
+          <li><a href="about.html" class="text-gray-600 hover:text-blue-500">About Us</a></li>
+          <li><a href="contact.html" class="text-gray-600 hover:text-blue-500">Contact Us</a></li>
+          <li><a href="login.html" class="text-gray-600 hover:text-blue-500">Login</a></li>
+          <li><a href="register.html" class="text-gray-600 hover:text-blue-500">Register</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+  
+
+  <div class="max-w-5xl mx-auto bg-white p-6 rounded shadow">
+
+    <!-- 🔹 Produk Card di atas -->
+    <h2 class="text-xl font-semibold mb-4">Daftar Produk</h2>
+    <div id="productList" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
+      <!-- Card produk akan di-generate oleh JS -->
+    </div>
+
+    <!-- 🔹 Transaksi Produk -->
+    <h1 class="text-2xl font-bold mb-4">Transaksi Produk</h1>
+    <div class="flex items-center gap-4 mb-4" style="display:none">
+      <select id="productSelect" class="border p-2 rounded w-1/2">
+        <option value="">Pilih produk</option>
+        <option value="a">Produk A - Rp10.000</option>
+        <option value="b">Produk B - Rp15.000</option>
+        <option value="c">Produk B - Rp15.000</option>
+        <option value="d">Produk B - Rp15.000</option>
+        <option value="e">Produk B - Rp15.000</option>
+        <option value="f">Produk C - Rp20.000</option>
+        <option value="g">Produk C - Rp20.000</option>
+        <option value="h">Produk C - Rp20.000</option>
+        <option value="h">Produk C - Rp20.000</option>
+      </select>
+      <button onclick="addProduct()" class="bg-blue-500 text-white px-4 py-2 rounded">Tambah</button>
+    </div>
+
+    <table class="w-full table-auto mb-4 border">
+      <thead class="bg-gray-200">
+        <tr>
+          <th class="border p-2">Nama</th>
+          <th class="border p-2">Harga</th>
+          <th class="border p-2">Jumlah</th>
+          <th class="border p-2">Subtotal</th>
+          <th class="border p-2">Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="productTable" class="text-center"></tbody>
+    </table>
+
+    <div class="text-right mb-4">
+      <span class="text-xl font-bold">Total: Rp <span id="total">0</span></span>
+    </div>
+
+    <div class="flex items-center gap-4 mb-4">
+      <input type="number" id="uangDibayar" placeholder="Uang dibayar" class="border p-2 rounded w-1/2">
+      <button onclick="hitungKembalian()" class="bg-green-500 text-white px-4 py-2 rounded">Hitung Kembalian</button>
+    </div>
+
+    <div class="text-right mb-4">
+      <span class="text-lg font-semibold">Kembalian: Rp <span id="kembalian">0</span></span>
+    </div>
+
+    <div class="text-right">
+<button onclick="simpanTransaksi()" class="bg-purple-600 text-white px-6 py-2 rounded">Simpan Transaksi</button>
+
+    </div>
+
+<h2 class="text-xl font-semibold mt-10 mb-2">Riwayat Transaksi</h2>
+<div class="text-right mb-4">
+  <button onclick="exportToExcel()" class="bg-green-500 text-white px-6 py-2 rounded">Export to Excel</button>
+  <button onclick="exportToPDF()" class="bg-blue-500 text-white px-6 py-2 rounded ml-4">Export to PDF</button>
+</div>
+
+<table class="w-full table-auto border" id="riwayatTable">
+  <thead class="bg-gray-100">
+    <tr>
+      <th class="border p-2">Produk</th>
+      <th class="border p-2">Harga</th>
+      <th class="border p-2">Jumlah</th>
+      <th class="border p-2">Subtotal</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+  </div>
+
+    <!-- 🔹 Footer -->
+    <footer class="bg-white py-6 mt-12 text-center border-t">
+      <p class="text-gray-500 text-sm">&copy; 2025 MyKasir. All rights reserved.</p>
+    </footer>
+
+    
+  <script src="../js/product.js"></script>
+</body>
+</html>
