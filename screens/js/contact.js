@@ -5,7 +5,10 @@ const userId = getCookie('user_id');
 const firstName = getCookie('first_name');
 const lastName = getCookie('last_name');
 const email = getCookie('email');
-console.log("test" , userId , firstName , lastName , email);
+
+if (!userId) {
+    window.location.href = "login.html"
+}
 
     const inputFirstName = document.getElementById("first");
     const inputLastName = document.getElementById("last");
